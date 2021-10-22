@@ -1,0 +1,5 @@
+S.L.Freeland - 4-Feb-1998
+DO NOT INCLUDE ANY $SSW/GEN routines in this directory!!
+
+Files in this directory need to migrate to appropriate instrument
+tree. 

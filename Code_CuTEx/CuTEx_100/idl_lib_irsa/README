@@ -1,0 +1,59 @@
+-------------
+CONTENTS
+-------------
+
+4 IDL programs are provided:
+     query_irsa_cat.pro   --  query IRSA catalogs from the IDL command line (returns a structure)
+     read_ipac_table.pro  --  read an IPAC table from a file into IDL (returns a structure)
+     read_ipac_var.pro    --  read an IPAC table from an internal IDL variable (returns a structure) - used by query_irsa_cat.pro
+     write_ipac_table.pro --  write an IDL structure into an IPAC ascii table file
+
+-------------
+INSTALLATION REQUIREMENTS
+-------------
+
+--- Latest IDLASTRO
+
+To query IRSA catalogs using the IDL SOCKET command,
+query_irsa_cat.pro uses WEBGET from the GSFC IDL astrolib.  Other
+astrolib programs are also used.  Make sure you have the latest
+versions and that they are in your IDL path.  See:
+
+http://idlastro.gsfc.nasa.gov/contents.html
+
+--- Programs in PATH
+
+Put the programs in the IDL path.
+
+-------------
+USAGE EXAMPLE
+-------------
+
+IDL> .run read_ipac_var.pro,query_irsa_cat.pro
+IDL> info = query_irsa_cat([150.11917,2.205833], catalog='irasfsc', radius=1, radunits='deg')
+
+QUERY_IRSA_CAT.pro performs a query of a catalog in the IRSA holdings.
+The default is to query the 2MASS Point Source Catalog ('fp_psc').  It
+returns an IDL structure containing the contents of the downloaded
+table. If "outfile" is present, it will write the incoming table to a
+file.  This can be slow, so only do so if needed.
+
+Queries can by made by RA,Dec or by object name (resolved by NED
+or SIMBAD).  The radius of the search may be specified; the default
+units are arcsec.  See the file header for further details.
+
+In order to query other IRSA catalogs, the program needs to know
+the identifier string for the IRSA Program Interface.  The complete
+list of current catalogs (with the needed string) is available in 
+XML format at
+
+http://irsa.ipac.caltech.edu/cgi-bin/Gator/nph-scan?mode=xml
+
+or as an IPAC Table (ascii) at
+
+http://irsa.ipac.caltech.edu/cgi-bin/Gator/nph-scan?mode=ascii
+
+The identifier string needed for the IDL program is the "catname"
+column of the table.
+
+Notes on usage for the other programs are in the file headers.
