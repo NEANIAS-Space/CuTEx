@@ -12,7 +12,7 @@ currDir=$(pwd)
 cat ./Code_CuTEx/CuTEx_100/phot_package_compile.lis | sed "s:DUMMYDIR:$currDir:"  > ./Code_CuTEx/CuTEx_100/phot_package.lis
 cat launch_script_template_GDL_CuTEx.pro | sed "s:DUMMYDIR:$currDir:" | sed "s:RUNDIR:$dirRun:" > launch_script_GDL_CuTEx.pro
 
-#/usr/local/bin/gdl launch_script_GDL_CuTEx.pro 
+/usr/local/bin/gdl launch_script_GDL_CuTEx.pro 
 
 pushd $dirRun
 mainFiles=$(cat list_mainOutputs.txt)
