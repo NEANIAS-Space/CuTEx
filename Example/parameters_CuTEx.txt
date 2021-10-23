@@ -1,6 +1,5 @@
 # Parameter file for the Detection and Extraction of CuTEx
 IMAGE = 'G351.07-0.55_PSW.fits'
-#
 # DETECTION PARAMETERS
 THRESHOLD = 4.0
 #

@@ -1,6 +1,5 @@
 # Parameter file for the Detection and Extraction of CuTEx
 IMAGE = 'PARAM__INPUT_FILE'
-#
 # DETECTION PARAMETERS
 THRESHOLD = PARAM__THRESHOLD
 #

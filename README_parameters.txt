@@ -1,6 +1,5 @@
 # Parameter file for the Detection and Extraction of CuTEx
 IMAGE = 'PARAM__INPUT_FILE'											###  Filename of the INPUT image in FITS format 
-#
 # DETECTION PARAMETERS	
 THRESHOLD = PARAM__THRESHOLD										###  Threshold Level adopted to identify sources
 #

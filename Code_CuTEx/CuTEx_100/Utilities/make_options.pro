@@ -2,8 +2,9 @@ function make_options, optionfile, comment=comment
 
 	if not keyword_set(comment) then comment = '#'
 
-	nlines = NUMLINES(optionfile)
-	
+	;nlines = NUMLINES(optionfile)
+	nlines = file_lines(optionfile)
+
 	openr, lun, optionfile, /GET_LUN
 	
 	checkallcomments = intarr(nlines)
