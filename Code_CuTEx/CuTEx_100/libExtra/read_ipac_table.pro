@@ -326,7 +326,10 @@ for i = 0, nusecol - 1 do begin
 
   ; create or add to structure
   if ( i eq 0 ) then begin
-    table_s = create_struct( names[usecol[i]], fix('',TYPE=col_type[i]) )
+    ; WORK AROUND - EG+LSJ
+    ; THERE IS A BUG IN GDL UNDER UBUNTU RELEASE ON FIX FUNCTION WHEN CONVERTING A STRING INTO A STRING
+	if col_type[i] ne 7 then table_s = create_struct( names[usecol[i]], FIX('',TYPE=col_type[i])) $ 
+		else table_s = create_struct( names[usecol[i]], '' )
   endif else begin
     thiscol = names[usecol[i]]
     ; check for multiple columns with the same name and distinguish 
@@ -339,7 +342,10 @@ for i = 0, nusecol - 1 do begin
         /INFO
       message, 'WARNING: ... but NAMES parameter has not been updated', /INFO
     endif
-    table_s = create_struct( table_s, thiscol, fix('',TYPE=col_type[i]) )
+    ; WORK AROUND - EG+LSJ
+    ; THERE IS A BUG IN GDL UNDER UBUNTU RELEASE ON FIX FUNCTION WHEN CONVERTING A STRING INTO A STRING
+    if col_type[i] ne 7 then table_s = create_struct( table_s, thiscol, fix('',TYPE=col_type[i]) ) $
+    	else table_s = create_struct( table_s, thiscol, '' )
   endelse
 
 endfor
