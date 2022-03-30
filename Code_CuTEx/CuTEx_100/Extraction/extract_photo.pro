@@ -522,9 +522,9 @@ IN_D2Y45_THR = detlist.DER2Y45_THR
 ; Inconsistencies that I do not know where they come from, so I decide to not recompute the IMAGE positions from the CELESTIAL coordinates
 
 adxy,h,ra,dec,x,y
-
-x = xorig
-y = yorig
+;; Fixed an issue checked on ALMA images
+;; x = xorig
+;; y = yorig
 
 ;__________________________________________
 ;RESERVED FOR THE RMS MAPS
